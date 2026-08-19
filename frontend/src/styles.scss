@@ -1,0 +1,375 @@
+/* Garimpo.ai — sistema visual
+   Paleta: ardósia (estrutura) + ouro (ação/destaque), fundo claro para leitura
+   confortável de tabelas. */
+
+:root {
+  --gold-100: #fdf3dd;
+  --gold-200: #f7e0a8;
+  --gold-400: #e0a82e;
+  --gold-500: #c9891b;
+  --gold-600: #a06c12;
+
+  --slate-950: #10141c;
+  --slate-900: #171d28;
+  --slate-800: #232c3b;
+  --slate-600: #4a5568;
+  --slate-500: #6b7688;
+  --slate-400: #94a0b3;
+  --slate-200: #dfe4ec;
+  --slate-100: #eef1f6;
+  --slate-50: #f7f9fc;
+
+  --ok: #1f9d63;
+  --ok-bg: #e6f6ee;
+  --warn: #b7791f;
+  --warn-bg: #fdf3dd;
+  --err: #c53030;
+  --err-bg: #fdeaea;
+  --info: #2b6cb0;
+  --info-bg: #e8f1fb;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgba(16, 20, 28, 0.06), 0 8px 24px rgba(16, 20, 28, 0.06);
+  --shadow-sm: 0 1px 2px rgba(16, 20, 28, 0.08);
+  --mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--slate-50);
+  color: var(--slate-900);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 18px;
+}
+h3 {
+  font-size: 15px;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+a {
+  color: var(--gold-600);
+  text-decoration: none;
+}
+
+code,
+pre {
+  font-family: var(--mono);
+  font-size: 12.5px;
+}
+
+/* ---------- blocos ---------- */
+.card {
+  background: #fff;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-pad {
+  padding: 18px 20px;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--slate-200);
+}
+
+.muted {
+  color: var(--slate-500);
+}
+
+.small {
+  font-size: 12.5px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* ---------- formulários ---------- */
+label.field {
+  display: block;
+  margin-bottom: 14px;
+
+  > span {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--slate-600);
+    margin-bottom: 6px;
+  }
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--slate-900);
+  font: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+
+  &:focus {
+    outline: none;
+    border-color: var(--gold-400);
+    box-shadow: 0 0 0 3px var(--gold-100);
+  }
+
+  &:disabled {
+    background: var(--slate-100);
+    color: var(--slate-500);
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+
+  input {
+    width: auto;
+    margin-top: 3px;
+  }
+}
+
+/* ---------- botões ---------- */
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  padding: 8px 14px;
+  font-weight: 600;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary {
+  background: var(--gold-500);
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background: var(--gold-600);
+  }
+}
+
+.btn-ghost {
+  background: #fff;
+  border-color: var(--slate-200);
+  color: var(--slate-800);
+
+  &:hover:not(:disabled) {
+    border-color: var(--slate-400);
+  }
+}
+
+.btn-quiet {
+  background: transparent;
+  color: var(--slate-500);
+  padding: 6px 8px;
+
+  &:hover:not(:disabled) {
+    color: var(--err);
+  }
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12.5px;
+}
+
+/* ---------- chips / status ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background: var(--slate-100);
+  color: var(--slate-600);
+  white-space: nowrap;
+}
+
+.chip.ok {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+.chip.run {
+  background: var(--info-bg);
+  color: var(--info);
+}
+.chip.warn {
+  background: var(--warn-bg);
+  color: var(--warn);
+}
+.chip.err {
+  background: var(--err-bg);
+  color: var(--err);
+}
+
+.tag {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 6px;
+  background: var(--slate-100);
+  color: var(--slate-600);
+  font-family: var(--mono);
+  font-size: 11.5px;
+}
+
+/* ---------- tabelas ---------- */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+
+  th,
+  td {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--slate-100);
+    white-space: nowrap;
+  }
+
+  th {
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--slate-500);
+    background: var(--slate-50);
+    position: sticky;
+    top: 0;
+  }
+
+  tbody tr:hover {
+    background: var(--slate-50);
+  }
+}
+
+pre.code {
+  margin: 0;
+  padding: 14px 16px;
+  background: var(--slate-950);
+  color: #e6edf3;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  max-height: 420px;
+  line-height: 1.5;
+}
+
+.empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--slate-500);
+}
+
+.alert {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  font-size: 13px;
+
+  &.err {
+    background: var(--err-bg);
+    border-color: #f5c6c6;
+    color: #822;
+  }
+  &.info {
+    background: var(--info-bg);
+    border-color: #cadff5;
+    color: #24557f;
+  }
+  &.warn {
+    background: var(--warn-bg);
+    border-color: var(--gold-200);
+    color: #7a5410;
+  }
+}
+
+@keyframes gm-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.pulse {
+  animation: gm-pulse 1.4s ease-in-out infinite;
+}

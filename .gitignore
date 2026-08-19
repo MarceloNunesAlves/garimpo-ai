@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+
+# Dados locais do Garimpo (banco, checkpoints, notebooks gerados)
+.garimpo-ai/
+workspace/
+*.db
+*.sqlite3
+
+# Ambiente
+.env
+.DS_Store

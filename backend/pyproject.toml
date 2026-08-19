@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "garimpo-ai"
+version = "0.1.0"
+description = "Garimpo.ai — time de agentes de dados com checklist, explicabilidade e notebook reprodutível"
+readme = "../README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "pydantic>=2.9",
+    "pydantic-settings>=2.5",
+    "SQLAlchemy>=2.0.35",
+    "pandas>=2.2",
+    "pyarrow>=17.0",
+    "numpy>=1.26",
+    "openpyxl>=3.1",
+    "plotly>=5.24",
+    "nbformat>=5.10",
+    "langchain-core>=0.3",
+]
+
+[project.optional-dependencies]
+anthropic = ["langchain-anthropic>=0.3"]
+openai = ["langchain-openai>=0.2"]
+ollama = ["langchain-ollama>=0.2"]
+postgres = ["psycopg[binary]>=3.2"]
+dev = ["pytest>=8.0", "httpx>=0.27"]
+
+[tool.setuptools.packages.find]
+include = ["garimpo*"]

@@ -1,0 +1,30 @@
+{
+  "name": "garimpo-ai-frontend",
+  "version": "0.1.0",
+  "description": "Interface do Garimpo.ai",
+  "scripts": {
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^20.0.0",
+    "@angular/compiler": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/forms": "^20.0.0",
+    "@angular/platform-browser": "^20.0.0",
+    "@angular/router": "^20.0.0",
+    "plotly.js-dist-min": "^2.35.2",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.7.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.0.0",
+    "@angular/cli": "^20.0.0",
+    "@angular/compiler-cli": "^20.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "~5.8.0"
+  }
+}

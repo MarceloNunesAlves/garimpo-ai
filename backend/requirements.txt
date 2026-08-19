@@ -1,0 +1,32 @@
+# API
+fastapi >= 0.115.0
+uvicorn[standard] >= 0.32.0
+pydantic >= 2.9
+pydantic-settings >= 2.5
+
+# Persistência (SQLite vem com o Python; Postgres é opcional)
+SQLAlchemy >= 2.0.35
+psycopg[binary] >= 3.2 ; python_version >= "3.10"
+
+# Dados
+pandas >= 2.2
+pyarrow >= 17.0          # checkpoints em parquet
+numpy >= 1.26
+openpyxl >= 3.1          # fontes .xlsx
+plotly >= 5.24
+
+# Notebook final
+nbformat >= 5.10
+
+# LLM (instale só o provedor que for usar)
+langchain-core >= 1.5.4
+langchain-anthropic >= 1.5.5
+langchain-openai >= 1.4.3
+langchain-ollama >= 1.1.0
+
+# Time de agentes de código em garimpo/agents.
+# Pisos conferidos com o ambiente em que os agentes rodam hoje: langgraph 1.x
+# expõe Checkpointer e StreamMode em `langgraph.types`, que os grafos importam.
+langgraph >= 1.2.11
+typing-extensions >= 4.12
+ipython >= 8.18           # os agentes renderizam Markdown no notebook
